@@ -1,1 +1,1 @@
-clone into ~/dotfiles, then symlink as needed into ~
+clone into ~/dotfiles (or ~/.dotfiles), then symlink as needed into ~
