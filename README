@@ -1,1 +1,19 @@
-clone into ~/dotfiles (or ~/.dotfiles), then symlink as needed into ~
+powerpak's dotfiles
+===================
+
+In general:
+-----------
+
+git clone into ~/dotfiles (or ~/.dotfiles), then symlink as needed into ~
+
+For .bash_profile:
+------------------
+
+Don't symlink; instead, edit existing .bashrc or .bash_profile, and add:
+
+  source dotfiles/.bash_profile
+
+Then set the color of the prompt and the hostname by adding:
+
+  export PSCOLOR=$COLOR_(BLACK|CYAN|BLUE|RED|GRAY|BROWN|GREEN|PURPLE)
+  export PSHOST="computah"
