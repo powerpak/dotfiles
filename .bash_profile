@@ -1,3 +1,5 @@
+# Better prompt, in color and showing current git branch
+
 function parse_git_branch {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo " "${ref#refs/heads/}
@@ -11,6 +13,8 @@ COLOR_RED="\033[0;31m"
 COLOR_PURPLE="\033[0;35m"
 COLOR_BROWN="\033[0;33m"
 COLOR_GRAY="\033[0;37m"
+
+# Show hostname in user-specified color
 
 function ps_hostname {
   if [ -n "${PSCOLOR}" ]; then
@@ -27,4 +31,13 @@ function ps_hostname {
 }
 
 export PS1="\$(ps_hostname):\w\[\033[1;37m\]\$(parse_git_branch)\[\033[0;00m\] \u\$ "
-export PATH="$PATH:~/bin"
+
+# Add local ~/bin to PATH if it exists
+
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+# NEVER use vi!
+
+alias vi=vim

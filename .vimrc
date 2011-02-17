@@ -1,9 +1,9 @@
+set nocompatible
+
 syntax on
 
 filetype off
 filetype plugin indent on
-
-set nocompatible
 
 set modelines=0
 
