@@ -38,6 +38,6 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-# NEVER use vi!
-
+# I like vim.
+export EDITOR=vim
 alias vi=vim
