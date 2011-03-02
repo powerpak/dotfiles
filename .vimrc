@@ -1,4 +1,5 @@
 set nocompatible
+set softtabstop=2
 
 syntax on
 
