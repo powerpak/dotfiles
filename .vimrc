@@ -1,9 +1,10 @@
+set nocompatible
+set softtabstop=2
+
 syntax on
 
 filetype off
 filetype plugin indent on
-
-set nocompatible
 
 set modelines=0
 
