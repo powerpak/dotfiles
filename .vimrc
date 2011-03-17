@@ -1,4 +1,5 @@
 set nocompatible
+set softtabstop=2
 
 syntax on
 
@@ -21,4 +22,4 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set pastetoggle=
+set pastetoggle=
