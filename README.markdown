@@ -17,3 +17,13 @@ Then set the color of the prompt and the hostname by adding:
 
   export PSCOLOR=$COLOR_(BLACK|CYAN|BLUE|RED|GRAY|BROWN|GREEN|PURPLE)
   export PSHOST="computah"
+
+If you want the hostname portion to be bold or underlined, set
+
+  export PSBOLD=1
+
+or
+
+  export PSUNDERLINE=1
+
+respectively.
