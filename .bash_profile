@@ -48,3 +48,4 @@ fi
 # I like vim.
 export EDITOR=vim
 alias vi=vim
+alias l=ls
