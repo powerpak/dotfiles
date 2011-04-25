@@ -17,6 +17,9 @@ COLOR_GRAY="7"
 # Show hostname in user-specified color
 
 function ps_color {
+  if [ -z "$TERM" ]; then
+    export TERM="xterm-color"
+  fi
   if [ -n "${PSBOLD}" ]; then
     tput bold
   fi
