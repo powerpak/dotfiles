@@ -4,12 +4,20 @@ powerpak's dotfiles
 In general:
 -----------
 
-git clone into ~/dotfiles (or ~/.dotfiles), then symlink as needed into ~
+`git clone` into `~/dotfiles` (or `~/.dotfiles`), then symlink as needed into `~`
+
+For fancy `screen`:
+-------------------
+
+You need to symlink `.screenrc` and `.screen-profiles`, and make sure
+`bin/screen-profiles-status` is in `$PATH`
+
+If you want to change the logo, create `.screen-profiles/logo`
 
 For .bash_profile:
 ------------------
 
-Don't symlink; instead, edit existing .bashrc or .bash_profile, and add:
+Don't symlink; instead, edit existing `.bashrc` or `.bash_profile`, and add:
 
     source dotfiles/.bash_profile
 
