@@ -6,8 +6,8 @@ In general:
 
 `git clone` into `~/dotfiles` (or `~/.dotfiles`), then symlink as needed into `~`
 
-For fancy `screen`:
--------------------
+For fancy screen:
+-----------------
 
 You need to symlink `.screenrc` and `.screen-profiles`, and make sure
 `bin/screen-profiles-status` is in `$PATH`
