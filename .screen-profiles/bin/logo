@@ -20,6 +20,7 @@
 if [ -r "$HOME/.screen-profiles/logo" ]; then
 	# Allow users to define their own logo
 	cat "$HOME/.screen-profiles/logo"
+	exit 0
 elif [ -r "$HOME/.screen-profiles/distro" ]; then
 	# Allow manual override of distro
 	distro=`cat "$HOME/.screen-profiles/distro"`

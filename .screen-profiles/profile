@@ -26,7 +26,7 @@ source common
 caption always "%{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%? %= %{= kw}%110`%109`%111`"
 
 # Status string, last line
-hardstatus string '%99`%{= kw} %100`%112`%= %102`%101`%114`%115`%108`%113`%119`%117`%118`%116`%106`%104`%103`%105`%107`%Y-%m-%d %0c:%s'
+hardstatus string '%{= kw}%99`%100`%112`%= %102`%101`%114`%115`%108`%113`%119`%117`%118`%116`%106`%104`%103`%105`%107`%Y-%m-%d %0c:%s'
 
 # NOTE: Older version of screen have an arbitrary limit of only being able
 # to change colors 16 times in this 'hardstatus string'.
