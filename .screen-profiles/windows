@@ -1,2 +1,2 @@
 # Default windows
-screen -t shell 0 motd+shell
+screen -t shell 0 /bin/bash -l 
