@@ -1,2 +1,2 @@
 # Default windows
-screen -t shell 0 /bin/bash -l 
+screen -t shell 1 /bin/bash -l 

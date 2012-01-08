@@ -6,6 +6,8 @@ syntax on
 filetype off
 filetype plugin indent on
 
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
+
 set modelines=0
 
 set encoding=utf-8
@@ -25,3 +27,11 @@ set laststatus=2
 set pastetoggle=
 nnoremap / /\v
 vnoremap / /\v
+
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
