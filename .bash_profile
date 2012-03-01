@@ -35,7 +35,7 @@ function ps_color {
 
 function ps_hostname {
   if [ -z "${PSHOST}" ]; then
-    PSHOST=`hostname`
+    PSHOST=`hostname | cut -d'.' -f1`
   fi
   echo "$PSHOST"
 }
