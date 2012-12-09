@@ -5,32 +5,42 @@ function parse_git_branch {
   echo " "${ref#refs/heads/}
 }
 
-COLOR_BLACK="\033[0;30m"
-COLOR_BLUE="\033[0;34m"
-COLOR_GREEN="\033[0;32m"
-COLOR_CYAN="\033[0;36m"
-COLOR_RED="\033[0;31m"
-COLOR_PURPLE="\033[0;35m"
-COLOR_BROWN="\033[0;33m"
-COLOR_GRAY="\033[0;37m"
+COLOR_BLACK="0"
+COLOR_BLUE="4"
+COLOR_GREEN="2"
+COLOR_CYAN="6"
+COLOR_RED="1"
+COLOR_PURPLE="5"
+COLOR_BROWN="3"
+COLOR_GRAY="7"
 
 # Show hostname in user-specified color
 
-function ps_hostname {
-  if [ -n "${PSCOLOR}" ]; then
-    echo -en $PSCOLOR
-  else
-    echo -en $COLOR_BLUE
+function ps_color {
+  if [ -z "$TERM" ]; then
+    export TERM="xterm-color"
   fi
-  if [ -n "${PSHOST}" ]; then
-    echo -en $PSHOST
-  else
-    echo -en `hostname`
+  if [ -n "${PSBOLD}" ]; then
+    tput bold
   fi
-  echo -en "\033[0m"
+  if [ -n "${PSUNDERLINE}" ]; then
+    tput smul
+  fi
+  if [ -z "${PSCOLOR}" ]; then
+    tput setaf $COLOR_BLUE
+  else
+    tput setaf $PSCOLOR
+  fi
 }
 
-export PS1="\$(ps_hostname):\w\[\033[1;37m\]\$(parse_git_branch)\[\033[0;00m\] \u\$ "
+function ps_hostname {
+  if [ -z "${PSHOST}" ]; then
+    PSHOST=`hostname | cut -d'.' -f1`
+  fi
+  echo "$PSHOST"
+}
+
+export PS1="\[\$(ps_color)\]\$(ps_hostname)\[$(tput sgr0)\]:\w\[\033[1;37m\]\$(parse_git_branch)\[\033[0;00m\] \u\$ "
 
 # Add local ~/bin to PATH if it exists
 
@@ -41,3 +51,4 @@ fi
 # I like vim.
 export EDITOR=vim
 alias vi=vim
+alias l=ls

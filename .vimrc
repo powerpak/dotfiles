@@ -1,9 +1,12 @@
 set nocompatible
+set softtabstop=2
 
 syntax on
 
 filetype off
 filetype plugin indent on
+
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
 
 set modelines=0
 
@@ -21,10 +24,21 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set pastetoggle=
 
 " Break lines intelligently when wrapping
 set linebreak
 set display+=lastline
 
 let @w='gwap'
+
+set pastetoggle=
+nnoremap / /\v
+vnoremap / /\v
+
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+nnoremap <leader><space> :noh<cr>
