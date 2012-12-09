@@ -22,3 +22,9 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set pastetoggle=
+
+" Break lines intelligently when wrapping
+set linebreak
+set display+=lastline
+
+let @w='gwap'
