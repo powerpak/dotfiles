@@ -9,8 +9,7 @@ In general:
 For fancy screen:
 -----------------
 
-You need to symlink `.screenrc` and `.screen-profiles`, and make sure
-`bin/screen-profiles-status` is in `$PATH`
+You need to symlink `.screenrc` and `.screen-profiles`, and symlink `bin/screen-profiles-status` into your `~/bin`
 
 If you want to change the logo, create `.screen-profiles/logo`
 
