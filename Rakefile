@@ -51,8 +51,9 @@ task :screen => ".screen-profiles/logo" do
   Installer.link_verbose("bin/screen-profiles-status", "#{HOME}/bin/screen-profiles-status")
 end
 
-file ".screen-profiles/logo" do
-  File.open(".screen-profiles/logo", "w") {|f| f.write(`hostname`) }
+file ".screen-profiles/logo" do |t|
+  puts "Creating a default #{t.name}"
+  File.open(t.name, "w") {|f| f.write(`hostname`) }
 end
 
 task :bash_profile do
