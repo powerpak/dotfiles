@@ -66,8 +66,8 @@ task :bash_profile do
 
         source #{File.dirname(__FILE__)}/.bash_profile
         
-        export PSCOLOR=$COLOR_BLUE
-        export PSHOST="changeme"
+        export PSCOLOR=$COLOR_GREEN
+        export PSHOST="#{`hostname`.chomp}"
         export PSBOLD=1
         export PSUNDERLINE=0
       SH
