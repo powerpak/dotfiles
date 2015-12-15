@@ -69,7 +69,7 @@ task :bash_profile do
         export PSCOLOR=$COLOR_GREEN
         export PSHOST="#{`hostname`.chomp}"
         export PSBOLD=1
-        export PSUNDERLINE=0
+        export PSUNDERLINE=
       SH
     end
   else
