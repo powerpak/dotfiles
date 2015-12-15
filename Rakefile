@@ -53,7 +53,7 @@ end
 
 file ".screen-profiles/logo" do |t|
   puts "Creating a default #{t.name}"
-  File.open(t.name, "w") {|f| f.write("\005{= wr}#{`hostname`} @ ") }
+  File.open(t.name, "w") {|f| f.write("\005{= wr}#{`hostname`.chomp} @ ") }
 end
 
 task :bash_profile do
