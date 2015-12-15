@@ -1,20 +1,20 @@
-powerpak's dotfiles
-===================
+# powerpak's dotfiles
 
-In general:
------------
+## Auto install
 
-`git clone` into `~/dotfiles` (or `~/.dotfiles`), then symlink as needed into `~`
+`git clone` into `~/dotfiles` (or `~/.dotfiles`), `cd` into the repo, and run `rake`.
 
-For fancy screen:
------------------
+## Manual installation
+
+In general, `git clone` into `~/dotfiles` (or `~/.dotfiles`), then symlink as needed into `~`
+
+### For fancy screen:
 
 You need to symlink `.screenrc` and `.screen-profiles`, and symlink `bin/screen-profiles-status` into your `~/bin`
 
 If you want to change the logo, create `.screen-profiles/logo`
 
-For .bash_profile:
-------------------
+### For .bash_profile:
 
 Don't symlink; instead, edit existing `.bashrc` or `.bash_profile`, and add:
 
