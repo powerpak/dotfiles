@@ -8,12 +8,12 @@ class Installer
   
   class << self
     def osx?; Dir.exist?('/Library'); end
-  end
-  
-  def install
-    dotfiles.each do |src|
-      dest = "~/.#{src}"
 
+    def link(source, destination)
+      FileUtils.ln_s(source, destination)
+    end
+
+    def link_verbose(src, dest)
       source = File.expand_path(src)
       destination = File.expand_path(dest)
 
@@ -25,32 +25,37 @@ class Installer
       end
     end
   end
+  
+  def install
+    dotfiles.each do |src|
+      dest = "~/#{src}"
+
+      self.class.link_verbose(src, dest)
+    end
+  end
 
   def dotfiles
     Dir['.*'] - ['.git', '.', '..'] - EXCEPTIONS
-  end
-
-  def link(source, destination)
-    FileUtils.ln_s(source, destination)
   end
 end
 
 task :default => :install
 
-desc 'Install'
+desc 'Install dotfile symlinks into default locations'
 task :install => [:screen, :bash_profile] do
   Installer.new.install
 end
 
 task :screen do
   mkdir_p "#{HOME}/bin"
-  FileUtils.ln_s("#{HOME}/bin/screen-profiles-status", "bin/screen-profiles-status")
+  Installer.link_verbose("#{HOME}/bin/screen-profiles-status", "bin/screen-profiles-status")
 end
 
 task :bash_profile do
   dest = Installer.osx? ? "#{HOME}/.bash_profile" : "#{HOME}/.bashrc"
   
-  unless `grep -c 'dotfiles/.bash_profile' '#{Shellwords.escape dest}'`.to_i > 0
+  if `grep -c 'dotfiles/.bash_profile' '#{Shellwords.escape dest}'`.to_i == 0
+    puts "Sourcing .bash_profile from #{dest}"
     File.open(dest, 'a') do |f|
       f.puts <<-SH
         source #{File.dirname(__FILE__)}/.bash_profile
@@ -61,5 +66,7 @@ task :bash_profile do
         export PSUNDERLINE=0
       SH
     end
+  else
+    puts ".bash_profile already mentioned in #{dest}; not modifying"
   end
 end
