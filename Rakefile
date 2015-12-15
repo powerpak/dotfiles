@@ -57,7 +57,8 @@ task :bash_profile do
   if `grep -c 'dotfiles/.bash_profile' '#{Shellwords.escape dest}'`.to_i == 0
     puts "Sourcing .bash_profile from #{dest}"
     File.open(dest, 'a') do |f|
-      f.puts <<-SH
+      f.puts <<-SH.gsub(/^\s+/, '')
+
         source #{File.dirname(__FILE__)}/.bash_profile
         
         export PSCOLOR=$COLOR_BLUE
