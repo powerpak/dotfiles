@@ -42,3 +42,6 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
+
+" Disable ex-mode
+nnoremap Q <nop>
