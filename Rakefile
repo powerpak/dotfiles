@@ -48,7 +48,7 @@ end
 
 task :screen do
   mkdir_p "#{HOME}/bin"
-  Installer.link_verbose("#{HOME}/bin/screen-profiles-status", "bin/screen-profiles-status")
+  Installer.link_verbose("bin/screen-profiles-status", "#{HOME}/bin/screen-profiles-status")
 end
 
 task :bash_profile do
