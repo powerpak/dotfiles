@@ -13,6 +13,11 @@ You need to symlink `.screenrc` and `.screen-profiles`, and symlink `bin/screen-
 
 If you want to change the logo, create `.screen-profiles/logo`
 
+For htop without meters for all CPUs:
+-------------------------------------
+
+Most useful on machines with >32 cores, in which case htop becomes a wall of meters without a process list. Symlink `~/.config/htop/htoprc` to this repo's version; beware that htop automatically saves new changes every time you quit gracefully with F10 (not Ctrl-C).
+
 For .bash_profile:
 ------------------
 
