@@ -19,7 +19,6 @@ If you want to change the logo, create `.screen-profiles/logo`
 Most useful on machines with >32 cores, in which case htop becomes a wall of meters without a process list. Symlink `~/.config/htop/htoprc` to this repo's version; beware that htop automatically saves new changes every time you quit gracefully with F10 (not Ctrl-C).
 
 ### For .bash_profile:
->>>>>>> 164d9bfd71deb55f2727255fdb63458f670b69da
 
 Don't symlink; instead, edit existing `.bashrc` or `.bash_profile`, and add:
 
