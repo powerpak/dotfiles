@@ -7,7 +7,7 @@ class Installer
   EXCEPTIONS = ['.bash_profile']
   
   class << self
-    def osx?; Dir.exist?('/Library'); end
+    def osx?; File.exist?('/Library'); end
 
     def link(source, destination)
       FileUtils.ln_s(source, destination)
