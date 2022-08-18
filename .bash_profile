@@ -48,6 +48,22 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
+# Additional utilities
+
+# This one depends on csvkit: see https://csvkit.readthedocs.io/
+function csvhead() {
+  local lines="$2"
+  local csvlookflags="$3"
+  [ -z "$lines" ] && lines="50"
+  head -n "$lines" "$1" | dos2unix | csvlook $3 | less -S
+}
+
+# Restart launchctl daemons on Mac OS X (required after editing the .plist)
+function launchctl_restart() {
+  sudo launchctl unload "$1"
+  sudo launchctl load -w "$1"
+}
+
 # I like vim.
 export EDITOR=vim
 alias vi=vim
