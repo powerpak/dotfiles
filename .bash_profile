@@ -64,6 +64,9 @@ function launchctl_restart() {
   sudo launchctl load -w "$1"
 }
 
+alias 7zencrypt='7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=32m -ms=on -mhe=on -p'
+alias 7ztest='7z l -slt'
+
 # I like vim.
 export EDITOR=vim
 alias vi=vim
