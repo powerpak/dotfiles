@@ -50,7 +50,8 @@ fi
 
 # Additional utilities
 
-# This one depends on csvkit: see https://csvkit.readthedocs.io/
+# This one depends on csvkit https://csvkit.readthedocs.io/
+#    and dos2unix https://formulae.brew.sh/formula/dos2unix
 function csvhead() {
   local lines="$2"
   local csvlookflags="$3"
@@ -71,3 +72,6 @@ alias 7ztest='7z l -slt'
 export EDITOR=vim
 alias vi=vim
 alias l=ls
+
+# When I use R, I never save the workspace on exiting
+alias R="R --no-save"
