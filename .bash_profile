@@ -65,13 +65,17 @@ function launchctl_restart() {
   sudo launchctl load -w "$1"
 }
 
+# 7zip tools
 alias 7zencrypt='7z a -t7z -m0=lzma2 -mx=9 -mfb=64 -md=32m -ms=on -mhe=on -p'
 alias 7ztest='7z l -slt'
+
+# When I use R, I never save the workspace on exiting
+alias R="R --no-save"
+
+# Run a jupyter notebook top to bottom in place
+alias nbx="jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.timeout=-1"
 
 # I like vim.
 export EDITOR=vim
 alias vi=vim
 alias l=ls
-
-# When I use R, I never save the workspace on exiting
-alias R="R --no-save"
