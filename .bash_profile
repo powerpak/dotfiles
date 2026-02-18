@@ -73,7 +73,15 @@ alias 7ztest='7z l -slt'
 alias R="R --no-save"
 
 # Run a jupyter notebook top to bottom in place
-alias nbx="jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.timeout=-1"
+function nbx() {
+  local kernel=""
+  local nb="$1"
+  if [ "$#" -ge 2 ]; then
+    kernel="--ExecutePreprocessor.kernel_name=$1"
+    nb="$2"
+  fi
+  jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.timeout=-1 $kernel "$nb"
+}
 
 # I like vim.
 export EDITOR=vim
