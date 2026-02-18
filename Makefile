@@ -43,6 +43,12 @@ screen: .screen-profiles/logo
 	@printf '\005{= wr}$(HOSTNAME) @ ' > $@
 
 bash_profile:
+	@if [ -e "$(HOME)/bin/show-colors" ]; then \
+		echo "$(HOME)/bin/show-colors exists"; \
+	else \
+		echo "Linking $(HOME)/bin/show-colors"; \
+		ln -s "$(DOTFILES_DIR)/bin/show-colors" "$(HOME)/bin/show-colors"; \
+	fi
 	@if grep -q 'dotfiles/.bash_profile' "$(PROFILE)" 2>/dev/null; then \
 		echo ".bash_profile already mentioned in $(PROFILE); not modifying"; \
 	else \
