@@ -16,7 +16,7 @@ endif
 
 all: install
 
-install: screen bash_profile link_dotfiles
+install: screen tmux bash_profile link_dotfiles
 
 link_dotfiles:
 	@for dotfile in $(DOTFILES); do \
@@ -36,6 +36,14 @@ screen: .screen-profiles/logo
 	else \
 		echo "Linking $(HOME)/bin/screen-profiles-status"; \
 		ln -s "$(DOTFILES_DIR)/bin/screen-profiles-status" "$(HOME)/bin/screen-profiles-status"; \
+	fi
+
+tmux:
+	@if [ -e "$(HOME)/.tmux.conf" ]; then \
+		@echo "Creating a default .tmux.conf"
+		@printf 'set -g status-bg green' > "$(HOME)/.tmux.conf"
+		@printf 'set -g status-fg white' >> "$(HOME)/.tmux.conf"
+		@printf "source-file $(DOTFILES_DIR)/.tmux.conf" >> "$(HOME)/.tmux.conf"
 	fi
 
 .screen-profiles/logo:
