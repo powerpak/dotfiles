@@ -40,10 +40,10 @@ screen: .screen-profiles/logo
 
 tmux:
 	@if [ -e "$(HOME)/.tmux.conf" ]; then \
-		@echo "Creating a default .tmux.conf"
-		@printf 'set -g status-bg green' > "$(HOME)/.tmux.conf"
-		@printf 'set -g status-fg white' >> "$(HOME)/.tmux.conf"
-		@printf "source-file $(DOTFILES_DIR)/.tmux.conf" >> "$(HOME)/.tmux.conf"
+		echo "Creating a default .tmux.conf"; \
+		printf 'set -g status-bg green' > "$(HOME)/.tmux.conf"; \
+		printf 'set -g status-fg white' >> "$(HOME)/.tmux.conf"; \
+		printf "source-file $(DOTFILES_DIR)/.tmux.conf" >> "$(HOME)/.tmux.conf"; \
 	fi
 
 .screen-profiles/logo:
