@@ -39,7 +39,7 @@ screen: .screen-profiles/logo
 	fi
 
 tmux:
-	@if [ -e "$(HOME)/.tmux.conf" ]; then \
+	@if [ ! -e "$(HOME)/.tmux.conf" ]; then \
 		echo "Creating a default .tmux.conf"; \
 		printf 'set -g status-bg green\n' > "$(HOME)/.tmux.conf"; \
 		printf 'set -g status-fg white\n' >> "$(HOME)/.tmux.conf"; \
