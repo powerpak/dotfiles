@@ -83,6 +83,9 @@ function nbx() {
   jupyter nbconvert --execute --to notebook --inplace --ExecutePreprocessor.timeout=-1 $kernel "$nb"
 }
 
+# No point in Mac OS 10.15+ (Catalina onward) yelling about my continued bash usage
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # I like vim.
 export EDITOR=vim
 alias vi=vim
